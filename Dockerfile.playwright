@@ -5,8 +5,9 @@ WORKDIR /tests
 # Install Playwright Test
 RUN npm init -y && npm install -D @playwright/test
 
-# Copy your test file(s)
+# Copy everything from the tests/ folder on your computer into the working directory inside the Docker container
 COPY tests/ .
+# So after the copy, your container will have this: /tests/test.spec.ts
 
 # Run test
 CMD ["npx", "playwright", "test", "test.spec.ts"]
